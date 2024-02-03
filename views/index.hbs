@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReX UI</title>
+    <link rel="stylesheet" href="http://localhost:3000/static/css/index.css">
+    <script src="http://localhost:3000/static/js/indexFile.js"></script>
+</head>
+
+<body>
+
+
+    {{>sidebar}}
+
+    <div id="main">
+        {{>navbar}}
+        {{>sidebtn}}
+        <div class="border content-area">
+            {{>welcome}}
+            {{>loading}}
+            <div class='border' id="chat-container">
+                {{{chats}}}
+            </div>
+        </div>
+
+        {{>input}}
+    </div>
+
+</body>
+
+</html>
