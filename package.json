@@ -1,0 +1,31 @@
+{
+  "name": "GemAI", 
+  "version": "1.0.0",
+  "description": "Websit Gem AI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/index.js -e js, css, html, hbs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0x000UK/GemAI.git"
+  },
+  "author": "Utkarsh Krishna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/0x000UK/GemAI.git/issues"
+  },
+  "homepage": "https://github.com/0x000UK/GemAI.git#readme",
+  "dependencies": {
+    "@google/generative-ai": "^0.1.3",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "hbs": "^4.2.0",
+    "mongoose": "^8.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
