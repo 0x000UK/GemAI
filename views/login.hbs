@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>GemAI</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="cont border">
+    <div class="form sign-in border">
+      <h2 class="border">Sign In</h2>
+      <form id = "login-form" method='POST' action="/login">
+        <label class=border>
+          <span>Email Address</span>
+          <input id = "email" type="email" name="email">
+          <span class="error" id="email-err">Please enter a valid email address</span>
+        </label>
+        <label class="border">
+          <span>Password</span>
+          <input  id = "password" type="password" name="password">
+          <span class="error" id="pass-err">Please enter a valid password</span>
+        </label>
+        <div class="forgot-pass border">Forgot Password?</div>
+        <button class="submit border" type="submit">Sign In</button>
+      </form>
+
+
+      <div class="social-media border">
+        <ul>
+          <li><img src="https://img.icons8.com/ios-filled/30/228BE6/facebook-new.png" alt="facebook-new" /></li>
+          <li><img src="https://img.icons8.com/color/48/twitter--v1.png" alt="twitter--v1" /></li>
+          <li><img src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo" /></li>
+          <li><img src="https://img.icons8.com/fluency/48/linkedin.png" alt="linkedin" /></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sub-cont border">
+      <div class="img border">
+        <div class="img-text m-up">
+          <h1>New here?</h1>
+          <p>sign up and discover</p>
+        </div>
+        <div class="img-text m-in">
+          <h1>One of us?</h1>
+          <p>just sign in</p>
+        </div>
+        <div class="img-btn">
+          <span class="m-up">Sign Up</span>
+          <span class="m-in">Sign In</span>
+        </div>
+      </div>
+      <div class="form sign-up border">
+        <h2 class="border">Sign Up</h2>
+        <form id="reg-form" method="POST" action="/register">
+          <label class="border" for="Name">
+            <span>Name</span>
+            <input type="text" id="user_name" name="user_name">
+            <span class="error" id="name-err">Name must not be empty</span>
+          </label>
+          <label class="border">
+            <span>Email</span>
+            <input type="email" id="user_email" name="user_email">
+            <span class="error" id="email-err">Please enter a valid email address</span>
+          </label>
+          <label class="border">
+            <span>Password</span>
+            <input type="password" id="user_password" name="user_password">
+            <span class="error" id="pass-err">Please enter a valid password</span>
+          </label>
+          <label class="border">
+            <span>Confirm Password</span>
+            <input type="password" id="user_cpassword">
+            <span class='error' id="cpass-err">password did not match</span>
+          </label>
+          <button type="submit" class="submit border" value="register">Sign Up Now</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      var email = document.getElementById('email');
+      var password = document.getElementById('password');
+
+      var pass_err_txt = document.getElementById('pass-err');
+      var email_err_txt = document.getElementById('email-err');
+
+      email.onclick = function () {
+        email_err_txt.innerText = "Please enter a valid Email";
+        email.setCustomValidity('');
+      }
+      password.onclick = function () {
+        pass_err_txt.innerText = "Please enter a valid password";
+        password.setCustomValidity('');
+      }
+
+      if (email.value == "") {
+        email.setCustomValidity('invalid');
+        email_err_txt.innerHTML = "email must not be empty empty";
+        return false;
+      }
+      if (password.value == "") {
+        password.setCustomValidity('invalidpass');
+        pass_err_txt.innerHTML = "Password must not be empty";
+        return false;
+      }
+      document.getElementById("login-form").submit();
+    });
+
+    document.getElementById('reg-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      var name = document.getElementById('user_name');
+      var password = document.getElementById('user_password');
+      var cpassword = document.getElementById('user_cpassword');
+      var email = document.getElementById('user_email');
+      var err_txt = document.getElementById('cpass-err');
+
+      var pass_err_txt = document.getElementById('pass-err');
+      var email_err_txt = document.getElementById('email-err');
+
+        
+      name.onclick = function (){ name.setCustomValidity(''); }
+      cpassword.onclick = function () { cpassword.setCustomValidity('')}
+      email.onclick = function () {
+        email_err_txt.innerText = "Please enter a valid Email";
+        email.setCustomValidity('');
+      }
+      password.onclick = function () {
+        pass_err_txt.innerText = "Please enter a valid password";
+        password.setCustomValidity('');
+      }
+      if (name.value == "") {
+        name.setCustomValidity('invalid');
+        return false;
+      }
+
+      if (password.value != cpassword.value) {
+        cpassword.setCustomValidity('invalid');
+        return false;
+      }
+      if (email.value == "") {
+        email.setCustomValidity('invalid');
+        email_err_txt.innerHTML = "email must not be empty empty";
+        return false;
+      }
+      if (password.value == "") {
+        password.setCustomValidity('invalidpass');
+        pass_err_txt.innerHTML = "Password must not be empty";
+        return false;
+      }
+      document.getElementById("reg-form").submit();
+    });
+
+
+    document.querySelector('.img-btn').addEventListener('click', function () {
+      document.querySelector('.cont').classList.toggle('s-signup')
+    });
+  </script>
+</body>
+
+</html>
