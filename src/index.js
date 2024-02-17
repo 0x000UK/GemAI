@@ -3,7 +3,7 @@ const session = require('express-session');
 const hbs = require('hbs');
 
 const path = require('path');
-// require('./db/connect');
+require('./db/connect');
 
 const port = process.env.PORT || 3000
 
