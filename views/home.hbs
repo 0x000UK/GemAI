@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:3000/static/css/home.css">
+    <title>Gem AI</title>
+</head>
+
+<body class="bd" style="background-color: rgb(0, 0, 46);">
+
+    <div class="border main">
+        <div class="design border">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <div class="border mid">
+            <div>
+                <h1>Gem AI</h1>
+            </div>
+
+            <div class="type">
+                <h2>
+                    <a href="#" class="typewrite" data-period="2000"
+                        data-type='[ "Hi, This is GemAI.", "Your Personel AI assistent", "Solve, Learn , Create with Us", "Stay Hungry, Stay Foolish"]'>
+                        <span class="wrap"></span>
+                    </a>
+                </h2>
+
+            </div>
+
+
+            <div class="border ehhehehe">
+                <div class="start border">
+                    <h2>
+                        Get Started
+                    </h2>
+                </div>
+
+
+                <div class="btn-container border">
+                    <button class="btn" onclick="Login()">
+                        Log in
+                    </button>
+                    <button class="btn">
+                        Sign Up
+                    </button>
+                </div>
+
+                <div class="term_privc border">
+                    <a class="terms" href="#">Terms of use</a>
+                    <span class="text-gray-600">|</span>
+                    <a class="privc" href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border design" id="des2">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        var txtType = function (el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        txtType.prototype.tick = function () {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+            var that = this;
+            var delta = 200 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function () {
+                that.tick();
+            }, delta);
+        };
+
+        window.onload = function () {
+            var elements = document.getElementsByClassName('typewrite');
+            for (var i = 0; i < elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-type');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new txtType(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+
+            var css = document.createElement("style");
+            css.textContentContent = ".typewrite > .wrap { border-right: 0.08em solid #fff }";
+            document.body.appendChild(css);
+
+            const dots = document.querySelectorAll('.dot');
+
+            const neonColors = [
+                '#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#ffff00', '#00ffff',
+                '#ff9900', '#9900ff', '#ff6699', '#66ff99', '#9966ff', '#ff9966',
+                '#66ffff', '#ff66ff', '#ccff66', '#66ccff', '#ffcc66', '#cc66ff'
+            ];
+
+            function disco() {
+                dots.forEach(function (dot) {
+                    // Pick a random color from the neon colors array
+                    const randomColor = neonColors[Math.floor(Math.random() * neonColors.length)];
+
+                    // Apply the new color and add shadow
+                    dot.style.backgroundColor = randomColor;
+                    dot.style.boxShadow = `0 0 10px ${randomColor}, 0 0 20px ${randomColor}, 0 0 30px ${randomColor}`;
+                });
+            }
+            setInterval(disco, 600);
+        };
+
+       function Login() {
+            window.location.href = '/login'; 
+        } 
+    </script>
+
+</body>
+
+</html>
